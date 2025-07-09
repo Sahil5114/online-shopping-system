@@ -6,7 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    return render(request,'index.html')
+    products = Product.get_all_products()
+    return render(request, 'index.html', {'products': products})
+
 def about(request):
     return render(request,'about.html')
 
